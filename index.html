@@ -1026,23 +1026,34 @@
         font-size: 1.5rem;
       }
 
+      /* Stile base per la modale */
       .pdf-modal-body {
-        flex: 1;
+        width: 80vw;
+        height: 80vh;
+        max-width: 900px;
+        max-height: 90vh;
+        margin: auto;
+        background: white;
+        border-radius: 8px;
         overflow: hidden;
       }
 
+      /* L'iframe deve riempire tutto */
       .pdf-modal-body iframe {
         width: 100%;
         height: 100%;
         border: none;
-        object-fit: contain;
+        display: block;
       }
 
-      /* Modal a tutto schermo su mobile */
+      /* Migliorie specifiche per schermi piccoli */
       @media (max-width: 768px) {
-        .pdf-modal-body iframe {
-          width: 100%;
-          height: 80vh;
+        .pdf-modal-body {
+          width: 95vw; /* Quasi tutta la larghezza dello schermo */
+          height: 90vh; /* Più altezza per vedere meglio il PDF */
+          max-width: none;
+          max-height: none;
+          border-radius: 0; /* Elimina bordi arrotondati per sfruttare meglio lo spazio */
         }
       }
     </style>

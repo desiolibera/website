@@ -302,13 +302,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // Aggiungi listener ai pulsanti che hanno data-modal-pdf
   document.querySelectorAll('[data-modal-pdf]').forEach((btn) => {
     btn.addEventListener('click', function (e) {
-      e.preventDefault(); // evita che segua il link #
+      e.preventDefault();
       const pdfUrl = this.getAttribute('data-modal-pdf');
       const title = this.getAttribute('data-modal-title') || 'Documento';
-      openPdfModal(title, pdfUrl);
+  
+      if (window.innerWidth < 768) {
+        // Se siamo su mobile/tablet, apriamo direttamente in una nuova scheda
+        window.open(pdfUrl, '_blank');
+      } else {
+        // Su desktop continuiamo a usare la modale
+        openPdfModal(title, pdfUrl);
+      }
     });
   });
-
+  
   // Chiudi quando clicchi sulla X
   pdfModalClose.addEventListener('click', closePdfModal);
 
