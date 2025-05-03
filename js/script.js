@@ -267,17 +267,44 @@ document.addEventListener("DOMContentLoaded", function () {
   // 8. ANIMAZIONE CTA SANTINO ELETTORALE
   // =========================
   function animateCTA() {
+    // Animazione container CTA (rimane invariata)
     gsap.to('.cta-container', {
-      duration: 1.2,
+      duration: 1,
+      delay: 0.3,
       opacity: 1,
       y: 0,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: '.cta-container',
-        start: 'top 80%',
+        trigger: '.cta h2', // trigger sulla scritta
+        start: 'bottom 80%',
+        toggleActions: 'play none none none'
       }
     });
+
+    // Timeline per la X (prima linea, poi seconda in sequenza)
+    const tlX = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.voto-wrapper',
+        start: 'top 80%',
+        toggleActions: 'restart none restart none', // ripete quando torni
+      }
+    });
+
+    // Prima linea - più veloce e naturale
+    tlX.to('#x-line1', {
+      attr: { x2: 90, y2: 90 },
+      duration: 0.6,
+      ease: 'power1.out',
+    });
+
+    // Poi seconda linea - parte dopo la prima automaticamente, dal basso verso l'alto
+    tlX.to('#x-line2', {
+      attr: { x2: 90, y2: 10 },
+      duration: 0.6,
+      ease: 'power1.out',
+    });
   }
+
 
   // =========================
   // 9. MODALE MULTI-PURPOSE

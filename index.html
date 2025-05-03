@@ -558,6 +558,20 @@
         border: 4px solid #fff;
       }
 
+      .voto-wrapper {
+        position: relative;
+        width: 100%;
+      }
+
+      .x-overlay {
+        position: absolute;
+        top: 35%;
+        left: 14%;
+        width: 30%;
+        height: 50%;
+        pointer-events: none;
+      }
+
       /* Footer */
       footer {
         background-color: #333;
@@ -1528,19 +1542,47 @@
     <section class="section cta" id="cta">
       <div class="cta-overlay"></div>
       <div class="container">
-        <div data-aos="zoom-in" data-aos-duration="800">
+        <div class="cta-text" data-aos="zoom-in" data-aos-duration="800">
           <h2>Come votare Desio Libera</h2>
           <p>
             Metti una <b>X</b> sul simbolo di Desio Libera e scrivi una
             preferenza di candidato. Se indichi due preferenze, ricordati di
             inserire un uomo e una donna della lista di Desio Libera.
           </p>
-          <div class="cta-container">
+        </div>
+        <div class="cta-container">
+          <div class="voto-wrapper">
             <img
               src="images/desio-libera-santino.jpg"
               alt="Come votare Desio Libera"
               class="cta-img"
             />
+            <svg
+              class="x-overlay"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
+              <line
+                id="x-line1"
+                x1="10"
+                y1="10"
+                x2="10"
+                y2="10"
+                stroke="black"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <line
+                id="x-line2"
+                x1="10"
+                y1="90"
+                x2="10"
+                y2="90"
+                stroke="black"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </svg>
           </div>
         </div>
       </div>
