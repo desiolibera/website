@@ -306,11 +306,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const pdfUrl = this.getAttribute('data-modal-pdf');
       const title = this.getAttribute('data-modal-title') || 'Documento';
   
-      if (window.innerWidth < 768) {
-        // Se siamo su mobile/tablet, apriamo direttamente in una nuova scheda
+      // Funzione per rilevare dispositivi mobili o tablet
+      const isMobileOrTablet = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+      if (isMobileOrTablet) {
+        // Su mobile o tablet, apri in nuova scheda
         window.open(pdfUrl, '_blank');
       } else {
-        // Su desktop continuiamo a usare la modale
+        // Su desktop continua con la modale
         openPdfModal(title, pdfUrl);
       }
     });
