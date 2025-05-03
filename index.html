@@ -540,6 +540,24 @@
         background-color: #f1f1f1;
       }
 
+      .cta-container {
+        max-width: 600px;
+        width: 100%;
+        margin: 40px auto 0;
+        opacity: 0;
+        transform: translateY(50px);
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-img {
+        width: 100%;
+        height: auto;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        border: 4px solid #fff;
+      }
+
       /* Footer */
       footer {
         background-color: #333;
@@ -1077,7 +1095,7 @@
               cy="150"
               r="150"
               fill="white"
-              stroke="#E0E0E0"
+              stroke="black"
               stroke-width="1"
             />
             <text
@@ -1507,33 +1525,37 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="section cta" id="contatti">
+    <section class="section cta" id="cta">
       <div class="cta-overlay"></div>
       <div class="container">
         <div data-aos="zoom-in" data-aos-duration="800">
-          <h2>Unisciti a Noi</h2>
+          <h2>Come votare Desio Libera</h2>
           <p>
-            Condividi la nostra visione e partecipa attivamente al cambiamento.
-            Insieme possiamo costruire un futuro migliore per Desio.
+            Metti una <b>X</b> sul simbolo di Desio Libera e scrivi una
+            preferenza di candidato. Se indichi due preferenze, ricordati di
+            inserire un uomo e una donna della lista di Desio Libera.
           </p>
-          <a
-            href="mailto:info@desiolibera.it?subject=Voglio%20unirmi%20a%20Desio%20Libera&body=Ciao,%0A%0ASono%20interessato/a%20a%20partecipare%20alla%20lista%20civica%20Desio%20Libera.%0A%0ANome:%20%0ACognome:%20%0ATelefono:%20%0A%0AIn%20che%20modo%20vorrei%20contribuire:%20%0A%0AGrazie!"
-            class="btn"
-            >Unisciti al cambiamento</a
-          >
+          <div class="cta-container">
+            <img
+              src="images/desio-libera-santino.jpg"
+              alt="Come votare Desio Libera"
+              class="cta-img"
+            />
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
     <footer>
-      <div class="container">
+      <div class="container" id="contatti">
         <div class="footer-content">
           <div class="footer-logo">
             <h3>Desio Libera</h3>
             <p>
-              Una lista civica per un futuro sostenibile, innovativo ed equo per
-              Desio.
+              Mettiamo al centro del nostro impegno le persone e il loro
+              desiderio di essere cittadini che vengono ascoltati, con cui
+              confrontarsi e prendere decisioni per una Desio che merita di più!
             </p>
           </div>
 
@@ -1543,6 +1565,7 @@
               <li><a href="#home">Home</a></li>
               <li><a href="#valori">Valori</a></li>
               <li><a href="#team">Candidati</a></li>
+              <li><a href="#cta">Come si vota</a></li>
             </ul>
           </div>
 
@@ -1550,7 +1573,6 @@
             <h4>Contatti</h4>
             <ul>
               <li>Email: info@desiolibera.it</li>
-              <li>Telefono: +39 340 3876276</li>
               <li>Indirizzo: Via Matteotti 23, Desio</li>
             </ul>
           </div>

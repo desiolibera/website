@@ -264,7 +264,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // =========================
-  // MODALE MULTI-PURPOSE
+  // 8. ANIMAZIONE CTA SANTINO ELETTORALE
+  // =========================
+  function animateCTA() {
+    gsap.to('.cta-container', {
+      duration: 1.2,
+      opacity: 1,
+      y: 0,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.cta-container',
+        start: 'top 80%',
+      }
+    });
+  }
+
+  // =========================
+  // 9. MODALE MULTI-PURPOSE
   // =========================
   const pdfModal = document.getElementById('pdf-modal');
   const pdfModalTitle = document.getElementById('pdf-modal-title');
@@ -352,4 +368,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  animateCTA();
 });
