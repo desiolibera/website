@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desio Libera - Lista Civica per un Futuro Sostenibile</title>
+    <meta
+      name="description"
+      content="Desio Libera è la lista civica per una Desio più equa, innovativa e sostenibile. Scopri il programma e i nostri candidati."
+    />
+    <!-- Preload immagini -->
+    <link rel="preload" as="image" href="images/1080.png" />
+    <link rel="preload" as="image" href="Images/600.png" />
+    <link rel="preload" as="image" href="Images/400.png" />
+    <!-- Preload + fallback per Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      />
+    </noscript>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <!-- Stili -->
+    <style>
+      /* Reset CSS */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Struttura principale */
+      .section {
+        position: relative;
+        min-height: 100vh;
+        padding: 80px 0;
+        overflow: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Header e navigazione */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        z-index: 1000;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      header.scrolled {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 12px 0;
+        backdrop-filter: blur(10px);
+      }
+
+      header.header-hidden {
+        transform: translateY(-100%);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-img {
+        margin-right: 15px;
+        height: 50px;
+        width: auto;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+        transition: all 0.5s ease;
+      }
+
+      .logo-text {
+        font-family: "Montserrat", sans-serif;
+        transition: color 0.3s ease;
+      }
+
+      .logo:hover .logo-img {
+        transform: rotate(10deg);
+        filter: drop-shadow(0 0 8px rgba(254, 23, 22, 0.5));
+      }
+
+      header.scrolled .logo {
+        color: #333;
+      }
+
+      header.scrolled .logo-text {
+        color: #333;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a:focus:not(:focus-visible) {
+        outline: none;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: #fe1716;
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      header.scrolled .nav-links a {
+        color: #333;
+      }
+
+      .nav-links a:hover {
+        color: #fe1716;
+      }
+
+      /* Hero section */
+      .hero {
+        background-color: #333;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-content {
+        max-width: 600px;
+        color: #fff;
+        position: relative;
+        z-index: 3;
+      }
+
+      .hero h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        font-weight: 800;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: #fe1716;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 50px;
+        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .btn:hover::after {
+        transform: translateX(0);
+      }
+
+      .btn:hover {
+        background-color: #e01010;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(254, 23, 22, 0.3);
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background-color: #fe1716;
+        clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+        z-index: 1;
+        transform-origin: center right;
+      }
+
+      .floating-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .floating-element {
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+      }
+
+      .shape1 {
+        width: 100px;
+        height: 100px;
+        top: 20%;
+        left: 10%;
+      }
+
+      .shape2 {
+        width: 150px;
+        height: 150px;
+        top: 60%;
+        right: 10%;
+      }
+
+      .shape3 {
+        width: 80px;
+        height: 80px;
+        bottom: 15%;
+        left: 20%;
+      }
+
+      .shape4 {
+        width: 120px;
+        height: 120px;
+        top: 35%;
+        right: 20%;
+      }
+
+      /* Elementi dei valori politici */
+      .principle {
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+      }
+
+      .principle:nth-child(odd) {
+        background-color: #f9f9f9;
+      }
+
+      .principle-content {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .principle-text {
+        flex: 1;
+        min-width: 300px;
+        padding-right: 50px;
+      }
+
+      .principle-image {
+        flex: 1;
+        min-width: 300px;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .principle-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .principle-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .principle:nth-child(even) .principle-content {
+        flex-direction: row-reverse;
+      }
+
+      .principle:nth-child(even) .principle-text {
+        padding-right: 0;
+        padding-left: 50px;
+      }
+
+      .principle h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        color: #333;
+        font-weight: 700;
+        position: relative;
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+      .principle h2::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: #fe1716;
+      }
+
+      .principle h3 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #333;
+        font-weight: 700;
+      }
+
+      .principle p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        color: #666;
+      }
+
+      /* Sezione del team */
+      .team {
+        background-color: #fff;
+        text-align: center;
+      }
+
+      .team h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        color: #333;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+      }
+
+      .team h2::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: #fe1716;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .team-member {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transform: translateY(0);
+        transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .team-member:hover {
+        transform: translateY(-10px);
+      }
+
+      .member-img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      .member-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        padding: 20px;
+        transform: translateY(0);
+        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .member-name {
+        color: #fff;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      .member-role {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+      }
+
+      .member-bio {
+        margin-top: 10px;
+        color: #fff;
+        font-size: 0.9rem;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .team-member:hover .member-info {
+        transform: translateY(-10px);
+      }
+
+      .team-member:hover .member-bio {
+        opacity: 1;
+        max-height: 100px;
+      }
+
+      /* Sezione CTA */
+      .cta {
+        background: linear-gradient(135deg, #fe1716, #c91312);
+        color: #fff;
+        text-align: center;
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-overlay {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        transform: rotate(30deg);
+        z-index: 1;
+      }
+
+      .cta h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-weight: 800;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta p {
+        max-width: 600px;
+        margin: 0 auto 40px;
+        font-size: 1.2rem;
+        opacity: 0.9;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta .btn {
+        background-color: #fff;
+        color: #fe1716;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta .btn:hover {
+        background-color: #f1f1f1;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #333;
+        color: rgba(255, 255, 255, 0.7);
+        padding: 50px 0;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .footer-logo {
+        flex: 1;
+        min-width: 200px;
+        margin-bottom: 30px;
+      }
+
+      .footer-logo h3 {
+        color: #fff;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+
+      .footer-links {
+        flex: 1;
+        min-width: 200px;
+        margin-bottom: 30px;
+      }
+
+      .footer-links h4 {
+        color: #fff;
+        margin-bottom: 15px;
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: #fe1716;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 40px;
+        margin-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+      }
+
+      /* Media queries */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .principle-content {
+          flex-direction: column !important;
+        }
+
+        .principle-text,
+        .principle:nth-child(even) .principle-text {
+          padding: 0;
+          margin-bottom: 30px;
+        }
+
+        .principle-image {
+          width: 100%;
+        }
+
+        .testimonial {
+          padding: 80px 0;
+        }
+
+        .testimonial blockquote {
+          font-size: 1.4rem;
+        }
+      }
+
+      /* Stile per il menu hamburger */
+      .menu-toggle {
+        display: none;
+        cursor: pointer;
+        position: relative;
+        width: 30px;
+        height: 25px;
+        z-index: 1001;
+      }
+
+      .menu-toggle span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: #fff;
+        border-radius: 3px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.25s ease-in-out;
+      }
+
+      .menu-toggle span:nth-child(1) {
+        top: 0px;
+      }
+
+      .menu-toggle span:nth-child(2) {
+        top: 10px;
+      }
+
+      .menu-toggle span:nth-child(3) {
+        top: 20px;
+      }
+
+      /* Cambio colore delle barre quando l'header è scrolled */
+      header.scrolled .menu-toggle span {
+        background: #333;
+      }
+
+      /* Stato attivo del menu hamburger (X) */
+      .menu-toggle.active span:nth-child(1) {
+        top: 10px;
+        transform: rotate(135deg);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+        left: -60px;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        top: 10px;
+        transform: rotate(-135deg);
+      }
+
+      /* Layout responsive per il menu */
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 80%;
+          max-width: 300px;
+          height: 100vh;
+          background-color: #fff;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+          z-index: 1000;
+          box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 20px 0;
+        }
+
+        .nav-links a {
+          color: #333 !important;
+          font-size: 1.2rem;
+        }
+
+        /* Overlay scuro quando il menu è aperto */
+        .menu-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 999;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+        }
+
+        .menu-overlay.active {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        /* Header compatto e sempre visibile durante lo scroll in mobile */
+        header.header-hidden {
+          transform: translateY(0);
+          background-color: rgba(255, 255, 255, 0.95);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(10px);
+        }
+
+        header.header-hidden .logo-text,
+        header.header-hidden .menu-toggle span {
+          color: #333;
+          background: #333;
+        }
+
+        /* Garantisce che il logo rimanga visibile */
+        .header-content {
+          padding: 0 15px;
+        }
+      }
+
+      /* Versione mini-header durante lo scroll */
+      .mini-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        padding: 10px 0;
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        backdrop-filter: blur(10px);
+      }
+
+      .mini-header.visible {
+        transform: translateY(0);
+      }
+
+      .mini-header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+
+      .mini-logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .mini-logo-img {
+        height: 40px;
+        width: auto;
+        margin-right: 10px;
+      }
+
+      .mini-logo-text {
+        color: #333;
+        font-weight: 700;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      /* Miglioramenti responsivi generali */
+      @media (max-width: 576px) {
+        .section {
+          padding: 60px 0;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .principle h2 {
+          font-size: 1.8rem;
+        }
+
+        .testimonial blockquote {
+          font-size: 1.2rem;
+        }
+
+        .footer-content {
+          flex-direction: column;
+        }
+
+        .cta h2 {
+          font-size: 2rem;
+        }
+
+        .team-grid {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+      }
+
+      /* Miglioramenti responsivi generali */
+      @media (max-width: 768px) {
+        .principle-content {
+          display: block;
+        }
+
+        .principle-text {
+          padding: 0 0 30px 0 !important;
+        }
+
+        .principle-image {
+          height: 300px;
+        }
+
+        /* Card layout per i contenuti in mobile */
+        .section {
+          padding: 50px 0;
+        }
+
+        .principle {
+          padding: 20px;
+          margin: 0 20px 40px;
+          border-radius: 15px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .principle:nth-child(odd) {
+          background-color: #ffffff;
+        }
+
+        /* Miglioramento spazio interno container su mobile */
+        .container {
+          padding: 0 20px;
+        }
+
+        /* Regolazione team grid */
+        .team-grid {
+          gap: 20px;
+        }
+
+        .team-member {
+          margin-bottom: 10px;
+        }
+
+        /* Footer su mobile */
+        .footer-content {
+          text-align: center;
+        }
+
+        .footer-logo,
+        .footer-links {
+          margin-bottom: 20px;
+        }
+      }
+
+      /* Miglioramenti per schermi molto piccoli */
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .btn {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+
+        .testimonial blockquote {
+          font-size: 1.1rem;
+          padding: 0 20px;
+        }
+
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .principle h2 {
+          font-size: 1.6rem;
+        }
+
+        /* Migliorare leggibilità testo su schermi piccoli */
+        body {
+          font-size: 16px;
+        }
+
+        p {
+          line-height: 1.5;
+        }
+      }
+
+      /* Ottimizzazioni per tablet */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .container {
+          padding: 0 40px;
+        }
+
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .principle h2 {
+          font-size: 2.2rem;
+        }
+
+        .team-grid {
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        }
+      }
+
+      /* Ottimizzazioni per garantire la leggibilità del testo su sfondi diversi */
+      .hero-content {
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .testimonial blockquote {
+        text-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Miglioramenti all'accessibilità */
+      .btn:focus,
+      .nav-links a:focus,
+      .menu-toggle:focus {
+        outline: 2px solid #fe1716;
+        outline-offset: 2px;
+      }
+
+      /* Ottimizzazione per performance - prevenire layout shift */
+      .hero,
+      .team-member,
+      .principle-image {
+        contain: layout paint;
+      }
+
+      /* Migliorare performance di scroll */
+      .section {
+        will-change: transform;
+      }
+
+      a:focus:not(:focus-visible) {
+        outline: none;
+      }
+
+      /* Modale PDF Multi-purpose */
+      .pdf-modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(3px);
+      }
+
+      .pdf-modal-content {
+        background-color: #fff;
+        margin: 5% auto;
+        padding: 0;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 900px;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .pdf-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fe1716;
+        color: #fff;
+        padding: 15px 20px;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+
+      .pdf-modal-close {
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+
+      .pdf-modal-body {
+        flex: 1;
+        overflow: hidden;
+      }
+
+      .pdf-modal-body iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        object-fit: contain;
+      }
+
+      /* Modal a tutto schermo su mobile */
+      @media (max-width: 768px) {
+        .pdf-modal-body iframe {
+          width: 100%;
+          height: 80vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header con navbar -->
+    <header id="header">
+      <div class="header-content">
+        <a href="#" class="logo">
+          <svg
+            class="logo-img"
+            id="logo-img"
+            width="50"
+            height="50"
+            viewBox="0 0 300 300"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- Il codice SVG del logo rimane invariato -->
+            <circle
+              cx="150"
+              cy="150"
+              r="150"
+              fill="white"
+              stroke="#E0E0E0"
+              stroke-width="1"
+            />
+            <text
+              x="52"
+              y="90"
+              font-family="Montserrat, sans-serif"
+              font-weight="700"
+              font-size="40"
+              fill="#000000"
+            >
+              Desio
+            </text>
+            <text
+              x="52"
+              y="140"
+              font-family="Montserrat, sans-serif"
+              font-weight="700"
+              font-size="40"
+              fill="#000000"
+            >
+              Libera
+            </text>
+            <!-- Asterisco fisso -->
+            <path
+              id="asterisk"
+              d="M215,150 L215,130 M215,150 L215,170 M215,150 L195,140 M215,150 L235,140 M215,150 L195,160 M215,150 L235,160"
+              stroke="#FE1716"
+              stroke-width="8"
+              fill="none"
+            />
+            <!-- Sorriso -->
+            <path
+              id="sorriso"
+              d="M75,190 A80,80 0 0,0 225,190"
+              stroke="#FE1716"
+              stroke-width="20"
+              fill="none"
+            />
+          </svg>
+          <span class="logo-text">Desio Libera</span>
+        </a>
+
+        <!-- Pulsante menu hamburger (aggiunto) -->
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#valori">Valori</a></li>
+          <li><a href="#team">Candidati</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Overlay per il menu mobile (aggiunto) -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <!-- Mini-header che appare durante lo scroll (aggiunto) -->
+    <div class="mini-header" id="mini-header">
+      <div class="mini-header-content">
+        <a href="#" class="mini-logo">
+          <svg
+            class="mini-logo-img"
+            width="40"
+            height="40"
+            viewBox="0 0 300 300"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- Versione più semplice del logo per il mini-header -->
+            <circle
+              cx="150"
+              cy="150"
+              r="150"
+              fill="white"
+              stroke="#E0E0E0"
+              stroke-width="1"
+            />
+            <text
+              x="52"
+              y="120"
+              font-family="Montserrat, sans-serif"
+              font-weight="700"
+              font-size="40"
+              fill="#000000"
+            >
+              DL
+            </text>
+            <path
+              id="mini-smile"
+              d="M75,190 A80,80 0 0,0 225,190"
+              stroke="#FE1716"
+              stroke-width="15"
+              fill="none"
+            />
+          </svg>
+          <span class="mini-logo-text">Desio Libera</span>
+        </a>
+
+        <!-- Pulsante menu hamburger nel mini-header -->
+        <div class="menu-toggle" id="mini-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero section -->
+    <section class="section hero" id="home">
+      <div class="container">
+        <div
+          class="hero-content"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
+          <p style="font-size: 2rem; margin-bottom: 0.5rem">
+            Elezioni Amministrative<br />25-26 maggio 2025
+          </p>
+          <h1>Vota Desio Libera</h1>
+          <h1>Liberi di partecipare</h1>
+          <br />
+          <p>
+            Mettiamo al centro del nostro impegno le persone e il loro desiderio
+            di essere cittadini che vengono ascoltati, con cui confrontarsi e
+            prendere decisioni per una Desio che merita di più!
+          </p>
+          <a
+            href="javascript:void(0);"
+            class="btn"
+            data-modal-pdf="assets/desio-libera-programma.pdf"
+            data-modal-title="Programma Desio Libera"
+          >
+            Scopri il Programma
+          </a>
+        </div>
+      </div>
+      <div class="hero-bg rellax" data-rellax-speed="-2"></div>
+      <div class="floating-elements">
+        <div
+          class="floating-element shape1 rellax"
+          data-rellax-speed="-1"
+        ></div>
+        <div class="floating-element shape2 rellax" data-rellax-speed="1"></div>
+        <div
+          class="floating-element shape3 rellax"
+          data-rellax-speed="-2"
+        ></div>
+        <div class="floating-element shape4 rellax" data-rellax-speed="2"></div>
+      </div>
+    </section>
+
+    <!-- Valori politici -->
+    <section class="section principle" id="valori">
+      <div class="container">
+        <h2 data-aos="fade-up" data-aos-duration="800">I Nostri Valori</h2>
+
+        <div class="principle-content">
+          <div
+            class="principle-text"
+            data-aos="fade-right"
+            data-aos-duration="800"
+            data-aos-offset="250"
+            data-aos-delay="0"
+          >
+            <h3>Partecipazione</h3>
+            <p>
+              Introdurre la giunta nei quartieri per essere più vicini ai
+              cittadini e ai territori. Istituire la figura dell'operaio di
+              quartiere, a stretto contatto con le necessità dell'area e con
+              interventi di manutenzione rapidi ed efficienti.
+            </p>
+          </div>
+          <div
+            class="principle-image"
+            data-aos="zoom-in-left"
+            data-aos-duration="1000"
+            data-aos-offset="300"
+            data-aos-delay="200"
+          >
+            <img
+              src="images/400.png"
+              alt="Partecipazione"
+              width="600"
+              height="400"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section principle">
+      <div class="container">
+        <div class="principle-content">
+          <div
+            class="principle-text"
+            data-aos="fade-right"
+            data-aos-duration="800"
+            data-aos-offset="250"
+            data-aos-delay="0"
+          >
+            <h3>Ambiente</h3>
+            <p>
+              Creare un grande parco regionale, partendo dal Parco Grubria.
+              Rilanciare i volontari del verde e momenti di educazione
+              ambientale nelle scuole e sul territorio.
+            </p>
+          </div>
+
+          <div
+            class="principle-image"
+            data-aos="zoom-in-left"
+            data-aos-duration="1000"
+            data-aos-offset="300"
+            data-aos-delay="200"
+          >
+            <picture>
+              <!-- Sorgente WebP per i browser che lo supportano -->
+              <source
+                srcset="images/desio-libera-ambiente.webp"
+                type="image/webp"
+              />
+              <!-- Fallback in JPEG per i browser che non supportano WebP -->
+              <img
+                src="images/desio-libera-ambiente.jpg"
+                alt="Ambiente"
+                width="600"
+                height="400"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section principle">
+      <div class="container">
+        <div class="principle-content">
+          <div
+            class="principle-text"
+            data-aos="fade-right"
+            data-aos-duration="800"
+            data-aos-offset="250"
+            data-aos-delay="0"
+          >
+            <h3>Cultura</h3>
+            <p>
+              Promuovere un modello di gestione e di valorizzazione di Villa
+              Tittoni e del suo Parco dal punto di vista museale, musicale,
+              teatrale, cinematografico e letterario, a cui aggiungere
+              <b>“PasseggiArte”</b>, un museo all'aperto nella città.
+            </p>
+          </div>
+          <div
+            class="principle-image"
+            data-aos="zoom-in-left"
+            data-aos-duration="1000"
+            data-aos-offset="300"
+            data-aos-delay="200"
+          >
+            <img
+              src="images/400.png"
+              alt="Equità Sociale"
+              width="600"
+              height="400"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section principle">
+      <div class="container">
+        <div class="principle-content">
+          <div
+            class="principle-text"
+            data-aos="fade-right"
+            data-aos-duration="800"
+            data-aos-offset="250"
+            data-aos-delay="0"
+          >
+            <h3>Giovani</h3>
+            <p>
+              Realizzare Spazio 360 come cuore pulsante di attività giovanili,
+              co-progettate insieme a loro, a forte impatto aggregativo, aperto
+              tutto il giorno, anche la sera.
+            </p>
+          </div>
+          <div
+            class="principle-image"
+            data-aos="zoom-in-left"
+            data-aos-duration="1000"
+            data-aos-offset="300"
+            data-aos-delay="200"
+          >
+            <img
+              src="images/400.png"
+              alt="Equità Sociale"
+              width="600"
+              height="400"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sezione team -->
+    <section class="section team" id="team">
+      <div class="container">
+        <h2 data-aos="fade-up" data-aos-duration="800">I nostri candidati</h2>
+        <div class="team-grid">
+          <div
+            class="team-member"
+            data-aos="flip-up"
+            data-aos-duration="800"
+            data-aos-anchor-placement="top-center"
+          >
+            <img
+              class="member-img"
+              src="images/600.png"
+              alt="Marco Bianchi"
+              width="400"
+              height="300"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="member-info">
+              <h3 class="member-name">Marco Bianchi</h3>
+              <p class="member-role">Coordinatore Nazionale</p>
+              <p class="member-bio">
+                Esperto di politiche economiche con 15 anni di esperienza nel
+                settore pubblico e privato.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="team-member"
+            data-aos="flip-up"
+            data-aos-duration="800"
+            data-aos-delay="100"
+            data-aos-anchor-placement="top-center"
+          >
+            <img
+              class="member-img"
+              src="images/600.png"
+              alt="Laura Verdi"
+              width="400"
+              height="300"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="member-info">
+              <h3 class="member-name">Laura Verdi</h3>
+              <p class="member-role">Responsabile Ambiente</p>
+              <p class="member-bio">
+                Biologa e attivista ambientale, ha collaborato con le principali
+                organizzazioni internazionali.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="team-member"
+            data-aos="flip-up"
+            data-aos-duration="800"
+            data-aos-delay="200"
+            data-aos-anchor-placement="top-center"
+          >
+            <img
+              class="member-img"
+              src="images/600.png"
+              alt="Antonio Russo"
+              width="400"
+              height="300"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="member-info">
+              <h3 class="member-name">Antonio Russo</h3>
+              <p class="member-role">Responsabile Innovazione</p>
+              <p class="member-bio">
+                Imprenditore tech con una visione chiara sul futuro digitale del
+                paese.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="team-member"
+            data-aos="flip-up"
+            data-aos-duration="800"
+            data-aos-delay="300"
+            data-aos-anchor-placement="top-center"
+          >
+            <img
+              class="member-img"
+              src="images/600.png"
+              alt="Giulia Moretti"
+              width="400"
+              height="300"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="member-info">
+              <h3 class="member-name">Giulia Moretti</h3>
+              <p class="member-role">Responsabile Politiche Sociali</p>
+              <p class="member-bio">
+                Sociologa con esperienza decennale nel terzo settore e nelle
+                politiche di inclusione.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section cta" id="contatti">
+      <div class="cta-overlay"></div>
+      <div class="container">
+        <div data-aos="zoom-in" data-aos-duration="800">
+          <h2>Unisciti a Noi</h2>
+          <p>
+            Condividi la nostra visione e partecipa attivamente al cambiamento.
+            Insieme possiamo costruire un futuro migliore per Desio.
+          </p>
+          <a
+            href="mailto:info@desiolibera.it?subject=Voglio%20unirmi%20a%20Desio%20Libera&body=Ciao,%0A%0ASono%20interessato/a%20a%20partecipare%20alla%20lista%20civica%20Desio%20Libera.%0A%0ANome:%20%0ACognome:%20%0ATelefono:%20%0A%0AIn%20che%20modo%20vorrei%20contribuire:%20%0A%0AGrazie!"
+            class="btn"
+            >Unisciti al cambiamento</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h3>Desio Libera</h3>
+            <p>
+              Una lista civica per un futuro sostenibile, innovativo ed equo per
+              Desio.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <h4>Collegamenti Rapidi</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#valori">Valori</a></li>
+              <li><a href="#team">Candidati</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>Contatti</h4>
+            <ul>
+              <li>Email: info@desiolibera.it</li>
+              <li>Telefono: +39 340 3876276</li>
+              <li>Indirizzo: Via Matteotti 23, Desio</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Desio Libera. Tutti i diritti riservati.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modale Multi-purpose -->
+    <div id="pdf-modal" class="pdf-modal">
+      <div class="pdf-modal-content">
+        <div class="pdf-modal-header">
+          <span class="pdf-modal-title" id="pdf-modal-title"
+            >Titolo Documento</span
+          >
+          <span class="pdf-modal-close" id="pdf-modal-close">&times;</span>
+        </div>
+        <div class="pdf-modal-body">
+          <iframe
+            id="pdf-frame"
+            src=""
+            frameborder="0"
+            width="100%"
+            height="100%"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
