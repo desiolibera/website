@@ -306,14 +306,30 @@ document.addEventListener("DOMContentLoaded", function () {
       const pdfUrl = this.getAttribute('data-modal-pdf');
       const title = this.getAttribute('data-modal-title') || 'Documento';
   
-      // Funzione per rilevare dispositivi mobili o tablet
-      const isMobileOrTablet = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      // Funzione per rilevare mobile, tablet e anche iPad in modalità desktop
+      const isMobileOrTablet = () => {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
   
-      if (isMobileOrTablet) {
-        // Su mobile o tablet, apri in nuova scheda
+        // Controllo dispositivi mobili classici
+        if (/android/i.test(userAgent) || /iPhone|iPod/i.test(userAgent)) {
+          return true;
+        }
+  
+        // Controllo per iPad (anche in modalità desktop Safari)
+        if (
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+        ) {
+          return true; // È un iPad
+        }
+  
+        return false; // Altrimenti è desktop
+      };
+  
+      if (isMobileOrTablet()) {
+        // Mobile/tablet (incluso iPad), apri in nuova scheda
         window.open(pdfUrl, '_blank');
       } else {
-        // Su desktop continua con la modale
+        // Desktop normale, apri la modale
         openPdfModal(title, pdfUrl);
       }
     });
