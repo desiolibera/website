@@ -291,7 +291,6 @@ function animateCognomeInTimeline(timeline) {
 }
 
 function animateCTA() {
-  // Animazione container CTA
   gsap.to('.cta-container', {
     duration: 1,
     delay: 0.3,
@@ -305,7 +304,6 @@ function animateCTA() {
     }
   });
 
-  // Timeline per X + Cognome in sequenza
   const tlX = gsap.timeline({
     scrollTrigger: {
       trigger: '.voto-wrapper',
@@ -314,23 +312,32 @@ function animateCTA() {
     }
   });
 
-  // Prima linea della X
+  // Prima linea
   tlX.to('#x-line1', {
     attr: { x2: 90, y2: 90 },
     duration: 0.6,
     ease: 'power1.out',
   });
 
-  // Seconda linea della X
+  // Seconda linea
   tlX.to('#x-line2', {
     attr: { x2: 90, y2: 10 },
     duration: 0.6,
     ease: 'power1.out',
   });
 
-  // Dopo la X --> scritta Cognome
+  // Cognome
   animateCognomeInTimeline(tlX);
+
+  // Disclaimer
+  tlX.to('.cta-disclaimer', {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: 'power2.out'
+  });
 }
+
 
   // =========================
   // 9. MODALE MULTI-PURPOSE
