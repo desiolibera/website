@@ -263,48 +263,71 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // =========================
-  // 8. ANIMAZIONE CTA SANTINO ELETTORALE
-  // =========================
-  function animateCTA() {
-    // Animazione container CTA (rimane invariata)
-    gsap.to('.cta-container', {
-      duration: 1,
-      delay: 0.3,
-      opacity: 1,
-      y: 0,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.cta h2', // trigger sulla scritta
-        start: 'bottom 80%',
-        toggleActions: 'play none none none'
-      }
+// =========================
+// 8. ANIMAZIONE CTA SANTINO ELETTORALE + COGNOME
+// =========================
+function animateCognomeInTimeline(timeline) {
+  const text = document.querySelector('#cognome-text');
+  if (text) {
+    const length = text.getTotalLength();
+
+    // Inizializza lo stato: nascosto
+    gsap.set(text, {
+      strokeDasharray: length,
+      strokeDashoffset: length,
+      opacity: 1, // mostriamo solo il tratto (fill è già trasparente)
     });
 
-    // Timeline per la X (prima linea, poi seconda in sequenza)
-    const tlX = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.voto-wrapper',
-        start: 'top 80%',
-        toggleActions: 'restart none restart none', // ripete quando torni
-      }
-    });
-
-    // Prima linea - più veloce e naturale
-    tlX.to('#x-line1', {
-      attr: { x2: 90, y2: 90 },
-      duration: 0.6,
-      ease: 'power1.out',
-    });
-
-    // Poi seconda linea - parte dopo la prima automaticamente, dal basso verso l'alto
-    tlX.to('#x-line2', {
-      attr: { x2: 90, y2: 10 },
-      duration: 0.6,
-      ease: 'power1.out',
+    // Aggiungiamo l'animazione alla timeline, dopo la X
+    timeline.to(text, {
+      strokeDashoffset: 0,
+      duration: 2,
+      ease: 'power1.inOut',
     });
   }
+}
 
+function animateCTA() {
+  // Animazione container CTA
+  gsap.to('.cta-container', {
+    duration: 1,
+    delay: 0.3,
+    opacity: 1,
+    y: 0,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.cta h2',
+      start: 'bottom 80%',
+      toggleActions: 'play none none none'
+    }
+  });
+
+  // Timeline per X + Cognome in sequenza
+  const tlX = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.voto-wrapper',
+      start: 'top 80%',
+      toggleActions: 'restart none restart none',
+    }
+  });
+
+  // Prima linea della X
+  tlX.to('#x-line1', {
+    attr: { x2: 90, y2: 90 },
+    duration: 0.6,
+    ease: 'power1.out',
+  });
+
+  // Seconda linea della X
+  tlX.to('#x-line2', {
+    attr: { x2: 90, y2: 10 },
+    duration: 0.6,
+    ease: 'power1.out',
+  });
+
+  // Dopo la X --> scritta Cognome
+  animateCognomeInTimeline(tlX);
+}
 
   // =========================
   // 9. MODALE MULTI-PURPOSE
@@ -395,5 +418,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Inizializza l'animazione CTA
   animateCTA();
 });

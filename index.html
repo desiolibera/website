@@ -21,6 +21,10 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       media="print"
@@ -30,6 +34,10 @@
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap"
+        rel="stylesheet"
       />
     </noscript>
 
@@ -570,6 +578,44 @@
         width: 30%;
         height: 50%;
         pointer-events: none;
+      }
+
+      .cognome-overlay {
+        position: absolute;
+        top: 35%; /* regola questo per posizionare verticalmente */
+        left: 53%; /* regola orizzontale */
+        width: 40%;
+        height: auto;
+        pointer-events: none;
+      }
+
+      @media (max-width: 768px) {
+        .x-overlay {
+          top: 38%; /* aggiustamento verticale */
+          left: 12%; /* aggiustamento orizzontale */
+          width: 35%;
+          height: 50%;
+        }
+
+        .cognome-overlay {
+          top: 38%; /* regola per adattarsi al mobile */
+          left: 50%; /* regola orizzontale */
+          width: 50%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .x-overlay {
+          top: 40%;
+          left: 10%;
+          width: 40%;
+        }
+
+        .cognome-overlay {
+          top: 40%;
+          left: 48%;
+          width: 55%;
+        }
       }
 
       /* Footer */
@@ -1542,47 +1588,68 @@
     <section class="section cta" id="cta">
       <div class="cta-overlay"></div>
       <div class="container">
-        <div class="cta-text" data-aos="zoom-in" data-aos-duration="800">
+        <div data-aos="zoom-in" data-aos-duration="800">
           <h2>Come votare Desio Libera</h2>
           <p>
             Metti una <b>X</b> sul simbolo di Desio Libera e scrivi una
             preferenza di candidato. Se indichi due preferenze, ricordati di
             inserire un uomo e una donna della lista di Desio Libera.
           </p>
-        </div>
-        <div class="cta-container">
-          <div class="voto-wrapper">
-            <img
-              src="images/desio-libera-santino.jpg"
-              alt="Come votare Desio Libera"
-              class="cta-img"
-            />
-            <svg
-              class="x-overlay"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-            >
-              <line
-                id="x-line1"
-                x1="10"
-                y1="10"
-                x2="10"
-                y2="10"
-                stroke="black"
-                stroke-width="3"
-                stroke-linecap="round"
+          <div class="cta-container">
+            <div class="voto-wrapper">
+              <img
+                src="images/desio-libera-santino.jpg"
+                alt="Come votare Desio Libera"
+                class="cta-img"
               />
-              <line
-                id="x-line2"
-                x1="10"
-                y1="90"
-                x2="10"
-                y2="90"
-                stroke="black"
-                stroke-width="3"
-                stroke-linecap="round"
-              />
-            </svg>
+              <!-- SVG sovrapposto solo sul simbolo -->
+              <svg
+                class="x-overlay"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+              >
+                <line
+                  id="x-line1"
+                  x1="10"
+                  y1="10"
+                  x2="10"
+                  y2="10"
+                  stroke="black"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <line
+                  id="x-line2"
+                  x1="10"
+                  y1="90"
+                  x2="10"
+                  y2="90"
+                  stroke="black"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              <!-- SVG per la scritta COGNOME (con fill trasparente!) -->
+              <svg
+                class="cognome-overlay"
+                viewBox="0 0 300 70"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <text
+                  id="cognome-text"
+                  x="0"
+                  y="50"
+                  font-size="60"
+                  font-family="'Caveat', cursive"
+                  fill="transparent"
+                  stroke="black"
+                  stroke-width="2"
+                >
+                  COGNOME
+                </text>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
