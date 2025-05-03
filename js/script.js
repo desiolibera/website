@@ -275,7 +275,10 @@ function animateCognomeInTimeline(timeline) {
     gsap.set(text, {
       strokeDasharray: length,
       strokeDashoffset: length,
-      opacity: 1, // mostriamo solo il tratto (fill è già trasparente)
+      stroke: '#000',
+      strokeWidth: 2,
+      fill: 'none',
+      opacity: 1,
     });
 
     // Aggiungiamo l'animazione alla timeline, dopo la X
