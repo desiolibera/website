@@ -442,20 +442,21 @@
       .team-member {
         position: relative;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
         border-radius: 10px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         transform: translateY(0);
         transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
       }
 
-      .team-member:hover {
-        transform: translateY(-10px);
-      }
+
 
       .member-img {
         width: 100%;
         height: 300px;
         object-fit: cover;
+        display: block;
       }
 
       .member-info {
@@ -465,8 +466,8 @@
         width: 100%;
         background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
         padding: 20px;
-        transform: translateY(0);
-        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        opacity: 0.85;
+        transition: opacity 0.4s ease;
       }
 
       .member-name {
@@ -491,7 +492,7 @@
       }
 
       .team-member:hover .member-info {
-        transform: translateY(-10px);
+        opacity: 1;
       }
 
       .team-member:hover .member-bio {
@@ -1611,11 +1612,10 @@
               decoding="async"
             />
             <div class="member-info">
-              <h3 class="member-name">Marco Bianchi</h3>
-              <p class="member-role">Coordinatore Nazionale</p>
+              <h3 class="member-name">Mattia Arienti</h3>
+              <p class="member-role"></p>
               <p class="member-bio">
-                Esperto di politiche economiche con 15 anni di esperienza nel
-                settore pubblico e privato.
+                Visualizza Curriculum
               </p>
             </div>
           </div>
