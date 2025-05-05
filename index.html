@@ -1074,6 +1074,9 @@
           gap: 20px;
         }
 
+        .team-grid .member-img {
+          aspect-ratio: 3/4;
+        }
         .team-member {
           margin-bottom: 10px;
         }
@@ -1151,6 +1154,16 @@
         .team-grid {
           grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         }
+
+        .team-grid .member-img {
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          aspect-ratio: 3/4;
+          object-fit: cover;
+          display: block;
+          margin: 0 auto;
+        }
       }
 
       @media (max-width: 480px) {
@@ -1179,6 +1192,7 @@
         .team-grid {
           grid-template-columns: 1fr;
         }
+
         .principle-content {
           flex-direction: column !important;
           align-items: center;
@@ -1195,6 +1209,12 @@
           min-height: 220px;
         }
 
+        .principle-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+        
         .principle p {
           text-align: center;
           padding: 0 10px;
@@ -1471,12 +1491,10 @@
             data-aos-delay="200"
           >
             <picture>
-              <!-- Sorgente WebP per i browser che lo supportano -->
               <source
                 srcset="images/desio-libera-ambiente.webp"
                 type="image/webp"
               />
-              <!-- Fallback in JPEG per i browser che non supportano WebP -->
               <img
                 src="images/desio-libera-ambiente.jpg"
                 alt="Ambiente"
@@ -1516,14 +1534,20 @@
             data-aos-offset="300"
             data-aos-delay="200"
           >
+          <picture>
+            <source
+              srcset="images/desio-libera-cultura.webp"
+              type="image/webp"
+            />
             <img
-              src="images/400.png"
-              alt="Equità Sociale"
+              src="images/desio-libera-cultura.jpg"
+              alt="Cultura"
               width="600"
               height="400"
               loading="lazy"
               decoding="async"
             />
+          </picture>
           </div>
         </div>
       </div>
