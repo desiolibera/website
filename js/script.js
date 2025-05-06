@@ -423,89 +423,66 @@ function animateCTA() {
     }
   });
 
-  // =========================
-  // 10. FALLBACK PER BROWSER FACEBOOK/INSTAGRAM
-  // =========================
-  function isFacebookInAppBrowser() {
-    const ua = navigator.userAgent || '';
-    return ua.includes('FBAN') || ua.includes('FBAV') || ua.includes('Instagram');
+// =========================
+// 10. FALLBACK PER BROWSER FACEBOOK/INSTAGRAM
+// =========================
+function isFacebookInAppBrowser() {
+  const ua = navigator.userAgent || '';
+  return ua.includes('FBAN') || ua.includes('FBAV') || ua.includes('Instagram');
+}
+
+if (isFacebookInAppBrowser()) {
+  console.warn('Rilevato browser interno Facebook/Instagram: attivo fallback');
+
+  const navLinks = document.getElementById('nav-links');
+  const menuToggle = document.getElementById('menu-toggle');
+  const miniMenuToggle = document.getElementById('mini-menu-toggle');
+  const menuOverlay = document.getElementById('menu-overlay');
+
+  // Rimuovi overlay se esiste
+  if (menuOverlay) menuOverlay.remove();
+
+  // Simula l'apertura del menu mobile
+  if (navLinks) {
+    navLinks.classList.add('active'); // forza apertura simulata
+  }
+  if (menuToggle) {
+    menuToggle.classList.add('simulated');
+    menuToggle.classList.add('active');
+  }
+  if (miniMenuToggle) {
+    miniMenuToggle.classList.add('simulated');
+    miniMenuToggle.classList.add('active');
   }
 
-  if (isFacebookInAppBrowser()) {
-    console.warn('Rilevato browser interno Facebook/Instagram: attivo fallback');
-
-    const navLinks = document.getElementById('nav-links');
-    const menuToggle = document.getElementById('menu-toggle');
-    const menuOverlay = document.getElementById('menu-overlay');
-
-    // Rimuovi overlay se esiste
-    if (menuOverlay) menuOverlay.remove();
-    const miniMenuToggle = document.getElementById('mini-menu-toggle');
-
-    // Rendi il menu sempre visibile
-    navLinks.classList.add('always-visible');
-    if (menuToggle) {
-      menuToggle.classList.add('simulated');
-      menuToggle.classList.add('active');
-    }
-
-    if (miniMenuToggle) {
-      miniMenuToggle.classList.add('simulated');
-      miniMenuToggle.classList.add('active');
-    }
-
-    // Applica stili per forzare il menu mobile statico
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @media (max-width: 768px) {
-        .menu-toggle.simulated {
-          pointer-events: none; /* Disattiva click */
-          cursor: default !important;
-        }
-        .nav-links {
-          position: fixed !important;
-          top: 60px !important; /* Posiziona subito sotto header */
-          right: 0 !important;
-          width: 80% !important;
-          max-width: 300px !important;
-          height: auto !important;
-          background: #fff !important;
-          box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1) !important;
-          flex-direction: column !important;
-          justify-content: flex-start !important;
-          text-align: left !important;
-          padding: 20px 0 !important;
-          transform: translateX(0) !important; /* Forza apertura */
-        }
-        .nav-links li {
-          margin: 15px 0 !important;
-          text-align: left !important;
-        }
-        .nav-links a {
-          display: block;
-          padding: 8px 20px;
-          font-size: 1.1rem;
-          color: #333 !important;
-        }
-        .menu-overlay {
-          display: none !important;
-        }
+  // Applica stili per disattivare il click sull'hamburger
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @media (max-width: 768px) {
+      .menu-toggle.simulated {
+        pointer-events: none;
+        cursor: default !important;
       }
-    `;
-    document.head.appendChild(style);
+      .menu-overlay {
+        display: none !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
 
-    // Aggiorna anche la gestione della modale per forzare l'apertura in nuova scheda
-    document.querySelectorAll('[data-modal-pdf]').forEach((btn) => {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        const pdfUrl = this.getAttribute('data-modal-pdf');
-        if (pdfUrl) {
-          window.open(pdfUrl, '_blank');
-        }
-      });
+  // Aggiorna anche la gestione della modale per forzare l'apertura in nuova scheda
+  document.querySelectorAll('[data-modal-pdf]').forEach((btn) => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const pdfUrl = this.getAttribute('data-modal-pdf');
+      if (pdfUrl) {
+        window.open(pdfUrl, '_blank');
+      }
     });
-  }
-
-  // Inizializza l'animazione CTA
+  });
+}
+  // =========================
+  // 11. ANIMAZIONE DELLA CTA
+  // =========================
   animateCTA();
 });
