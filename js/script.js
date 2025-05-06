@@ -423,7 +423,7 @@ function animateCTA() {
     }
   });
 
-    // =========================
+  // =========================
   // 10. FALLBACK PER BROWSER FACEBOOK/INSTAGRAM
   // =========================
   function isFacebookInAppBrowser() {
@@ -440,39 +440,54 @@ function animateCTA() {
 
     // Rimuovi overlay se esiste
     if (menuOverlay) menuOverlay.remove();
+    const miniMenuToggle = document.getElementById('mini-menu-toggle');
 
     // Rendi il menu sempre visibile
     navLinks.classList.add('always-visible');
-    if (menuToggle) menuToggle.style.display = 'none';
+    if (menuToggle) {
+      menuToggle.classList.add('simulated');
+      menuToggle.classList.add('active');
+    }
+
+    if (miniMenuToggle) {
+      miniMenuToggle.classList.add('simulated');
+      miniMenuToggle.classList.add('active');
+    }
 
     // Applica stili per forzare il menu mobile statico
     const style = document.createElement('style');
     style.innerHTML = `
       @media (max-width: 768px) {
+        .menu-toggle.simulated {
+          pointer-events: none; /* Disattiva click */
+          cursor: default !important;
+        }
         .nav-links {
-          position: static !important;
-          width: 100% !important;
-          max-width: none !important;
+          position: fixed !important;
+          top: 60px !important; /* Posiziona subito sotto header */
+          right: 0 !important;
+          width: 80% !important;
+          max-width: 300px !important;
           height: auto !important;
-          background: none !important;
-          box-shadow: none !important;
-          flex-direction: row !important;
-          flex-wrap: wrap !important;
-          justify-content: center;
-          text-align: center !important;
-          padding: 10px 0;
+          background: #fff !important;
+          box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1) !important;
+          flex-direction: column !important;
+          justify-content: flex-start !important;
+          text-align: left !important;
+          padding: 20px 0 !important;
+          transform: translateX(0) !important; /* Forza apertura */
         }
         .nav-links li {
-          margin: 5px 10px !important;
-          flex: 1 1 auto !important;
-          text-align: center !important;
+          margin: 15px 0 !important;
+          text-align: left !important;
         }
         .nav-links a {
           display: block;
-          padding: 8px 5px;
+          padding: 8px 20px;
           font-size: 1.1rem;
+          color: #333 !important;
         }
-        .menu-toggle {
+        .menu-overlay {
           display: none !important;
         }
       }
