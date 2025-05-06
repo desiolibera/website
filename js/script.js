@@ -268,28 +268,24 @@ document.addEventListener("DOMContentLoaded", function () {
 function animateCognomeInTimeline(timeline) {
   const text = document.querySelector('#cognome-text');
   if (text) {
-    const length = text.getTotalLength();
-
-    // Inizializza lo stato: nascosto
+    // Imposta l'opacità iniziale e un leggero offset in basso
     gsap.set(text, {
-      strokeDasharray: length,
-      strokeDashoffset: length,
-      stroke: '#000',
-      strokeWidth: 2,
-      fill: 'none',
-      opacity: 1,
+      opacity: 0,
+      y: 20,
     });
 
-    // Aggiungiamo l'animazione alla timeline, dopo la X
+    // Aggiunge l'animazione alla timeline dopo la X
     timeline.to(text, {
-      strokeDashoffset: 0,
-      duration: 2,
-      ease: 'power1.inOut',
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: 'power2.out',
     });
   }
 }
 
 function animateCTA() {
+  // Anima la comparsa della sezione CTA (contenitore santino)
   gsap.to('.cta-container', {
     duration: 1,
     delay: 0.3,
@@ -303,6 +299,7 @@ function animateCTA() {
     }
   });
 
+  // Timeline per la X e il cognome sovrapposti sul santino
   const tlX = gsap.timeline({
     scrollTrigger: {
       trigger: '.voto-wrapper',
@@ -311,24 +308,24 @@ function animateCTA() {
     }
   });
 
-  // Prima linea
+  // Disegna la prima linea della X
   tlX.to('#x-line1', {
     attr: { x2: 90, y2: 90 },
     duration: 0.6,
     ease: 'power1.out',
   });
 
-  // Seconda linea
+  // Disegna la seconda linea della X
   tlX.to('#x-line2', {
     attr: { x2: 90, y2: 10 },
     duration: 0.6,
     ease: 'power1.out',
   });
 
-  // Cognome
+  // Anima il cognome (fade in + risalita)
   animateCognomeInTimeline(tlX);
 
-  // Disclaimer
+  // Anima il disclaimer finale
   tlX.to('.cta-disclaimer', {
     opacity: 1,
     y: 0,
@@ -336,7 +333,6 @@ function animateCTA() {
     ease: 'power2.out'
   });
 }
-
 
   // =========================
   // 9. MODALE MULTI-PURPOSE

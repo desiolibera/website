@@ -614,6 +614,12 @@
         pointer-events: none;
       }
 
+      .cognome-overlay svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      
       /* Footer */
       footer {
         background-color: #333;
@@ -1113,11 +1119,6 @@
           height: 50%;
         }
 
-        .cognome-overlay {
-          top: 38%;
-          left: 50%;
-          width: 50%;
-        }
       }
 
       @media (max-width: 576px) {
@@ -1237,12 +1238,6 @@
           top: 38%;
           left: 9%;
           width: 40%;
-        }
-
-        .cognome-overlay {
-          top: 30%;
-          left: 50%;
-          width: 50%;
         }
 
         .cta-disclaimer {
@@ -2150,8 +2145,7 @@
         <div data-aos="zoom-in" data-aos-duration="800">
           <h2>Come votare Desio Libera</h2>
           <p>
-            Metti una <b>X</b> sul simbolo di Desio Libera<br />e scrivi il
-            cognome del candidato preferito.
+            Metti una <b>X</b> sul simbolo di Desio Libera<br />e scrivi il cognome del candidato o della candidata che preferisci.
           </p>
         </div>
         <div data-aos="zoom-in" data-aos-duration="800">
@@ -2190,30 +2184,28 @@
                 />
               </svg>
               <svg
-                class="cognome-overlay"
-                viewBox="0 0 300 70"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <text
-                  id="cognome-text"
-                  x="0"
-                  y="50"
-                  font-size="60"
-                  font-family="'Caveat', cursive"
-                  fill="black"
-                  stroke="black"
-                  stroke-width="1"
-                >
-                  COGNOME
-                </text>
-              </svg>
+    class="cognome-overlay"
+    viewBox="0 0 300 70"
+    preserveAspectRatio="xMidYMid meet"
+>
+    <text
+        id="cognome-text"
+        x="0"
+        y="50"
+        font-size="60"
+        font-family="'Caveat', cursive"
+        fill="black"
+        stroke="black"
+        stroke-width="1"
+    >
+        COGNOME
+    </text>
+</svg>
             </div>
           </div>
           <p class="cta-disclaimer">
             <i
-              >Se esprimi <b>due</b> preferenze, ricordati che devono essere
-              candidati di <b>genere diverso</b> appartenenti alla
-              <b>stessa lista</b>.</i
+              >Se indichi <b>due</b> preferenze, ricordati di esprimere un candidato di genere maschile e una candidata di genere femminile della <b>stessa lista</b>.</i
             >
           </p>
         </div>
