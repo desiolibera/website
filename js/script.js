@@ -423,6 +423,64 @@ function animateCTA() {
     }
   });
 
+    // =========================
+  // 10. FALLBACK PER BROWSER FACEBOOK/INSTAGRAM
+  // =========================
+  function isFacebookInAppBrowser() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    return ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1 || ua.indexOf('Instagram') > -1;
+  }
+
+  if (isFacebookInAppBrowser()) {
+    console.warn('Rilevato browser interno Facebook/Instagram: attivo fallback');
+
+    const navLinks = document.getElementById('nav-links');
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuOverlay = document.getElementById('menu-overlay');
+
+    // Rimuovi overlay se esiste
+    if (menuOverlay) menuOverlay.remove();
+
+    // Rendi il menu sempre visibile
+    navLinks.classList.add('always-visible');
+    if (menuToggle) menuToggle.style.display = 'none';
+
+    // Applica stili per forzare il menu mobile statico
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @media (max-width: 768px) {
+        .nav-links {
+          position: static !important;
+          width: 100% !important;
+          max-width: none !important;
+          height: auto !important;
+          background: none !important;
+          box-shadow: none !important;
+          flex-direction: row !important;
+          justify-content: center;
+        }
+        .nav-links li {
+          margin: 0 10px !important;
+        }
+        .menu-toggle {
+          display: none !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Aggiorna anche la gestione della modale per forzare l'apertura in nuova scheda
+    document.querySelectorAll('[data-modal-pdf]').forEach((btn) => {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const pdfUrl = this.getAttribute('data-modal-pdf');
+        if (pdfUrl) {
+          window.open(pdfUrl, '_blank');
+        }
+      });
+    });
+  }
+  
   // Inizializza l'animazione CTA
   animateCTA();
 });
