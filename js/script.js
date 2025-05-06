@@ -427,8 +427,8 @@ function animateCTA() {
   // 10. FALLBACK PER BROWSER FACEBOOK/INSTAGRAM
   // =========================
   function isFacebookInAppBrowser() {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    return ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1 || ua.indexOf('Instagram') > -1;
+    const ua = navigator.userAgent || '';
+    return ua.includes('FBAN') || ua.includes('FBAV') || ua.includes('Instagram');
   }
 
   if (isFacebookInAppBrowser()) {
@@ -457,10 +457,20 @@ function animateCTA() {
           background: none !important;
           box-shadow: none !important;
           flex-direction: row !important;
+          flex-wrap: wrap !important;
           justify-content: center;
+          text-align: center !important;
+          padding: 10px 0;
         }
         .nav-links li {
-          margin: 0 10px !important;
+          margin: 5px 10px !important;
+          flex: 1 1 auto !important;
+          text-align: center !important;
+        }
+        .nav-links a {
+          display: block;
+          padding: 8px 5px;
+          font-size: 1.1rem;
         }
         .menu-toggle {
           display: none !important;
@@ -480,7 +490,7 @@ function animateCTA() {
       });
     });
   }
-  
+
   // Inizializza l'animazione CTA
   animateCTA();
 });
