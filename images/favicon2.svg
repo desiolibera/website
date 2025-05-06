@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <circle cx="150" cy="150" r="150" fill="white" stroke="black" stroke-width="1" />
+  <text
+    x="52"
+    y="90"
+    font-family="Montserrat, sans-serif"
+    font-weight="700"
+    font-size="40"
+    fill="#000000"
+  >
+    Desio
+  </text>
+  <text
+    x="52"
+    y="140"
+    font-family="Montserrat, sans-serif"
+    font-weight="700"
+    font-size="40"
+    fill="#000000"
+  >
+    Libera
+  </text>
+  <path
+    d="M215,150 L215,130 M215,150 L215,170 M215,150 L195,140 M215,150 L235,140 M215,150 L195,160 M215,150 L235,160"
+    stroke="#FE1716"
+    stroke-width="8"
+    fill="none"
+  />
+  <path
+    d="M75,190 A80,80 0 0,0 225,190"
+    stroke="#FE1716"
+    stroke-width="20"
+    fill="none"
+  />
+</svg>
