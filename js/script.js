@@ -458,16 +458,14 @@ if (isFacebookInAppBrowser()) {
   // Applica stili per disattivare il click sull'hamburger
   const style = document.createElement('style');
   style.innerHTML = `
-    @media (max-width: 768px) {
-      .menu-toggle.simulated {
-        pointer-events: none;
-        cursor: default !important;
-      }
-      .menu-overlay {
-        display: none !important;
-      }
+  @media (max-width: 768px) {
+    .menu-toggle.simulated,
+    .nav-links,
+    .menu-overlay {
+      display: none !important;
     }
-  `;
+  }
+`;
   document.head.appendChild(style);
 
   // Aggiorna anche la gestione della modale per forzare l'apertura in nuova scheda
