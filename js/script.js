@@ -117,14 +117,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   gsap.to(".hero-bg", {
     scrollTrigger: {
-      trigger: ".hero",
-      start: "top top",
-      end: "bottom top",
-      scrub: 1,
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
     },
-    scale: 1.15,
-    y: "10%",
-    ease: "power1.out",
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+    ease: "none"
   });
 
   gsap.utils.toArray(".floating-element").forEach((element, i) => {
