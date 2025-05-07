@@ -693,6 +693,24 @@
         font-size: 0.9rem;
       }
 
+      .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .social-icons a img {
+        width: 32px;
+        height: 32px;
+        transition: transform 0.3s ease, filter 0.3s ease;
+        filter: grayscale(100%);
+      }
+
+      .social-icons a:hover img {
+        transform: translateY(-4px) scale(1.1);
+        filter: grayscale(0%);
+      }
+
       /* Stile per il menu hamburger */
       .menu-toggle {
         display: none;
@@ -2254,11 +2272,20 @@
               <li>Email: info@desiolibera.it</li>
               <li>Indirizzo: Via Matteotti 23, Desio</li>
             </ul>
+
+            <h4>Seguici sui social</h4>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/DesioLiberaListaCivica" target="_blank" aria-label="Facebook">
+                <img src="images/facebook.png" alt="Facebook" width="32" height="32">
+              </a>
+              <a href="https://www.instagram.com/desiolibera/" target="_blank" aria-label="Instagram">
+                <img src="images/Instagram.png" alt="Instagram" width="32" height="32">
+              </a>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; 2025 Desio Libera. Tutti i diritti riservati.</p>
+          <p>Desio Libera &copy; 2025 Tutti i diritti riservati - C.F. 91149330150</p>
         </div>
       </div>
     </footer>
