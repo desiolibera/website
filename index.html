@@ -285,6 +285,13 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
       }
 
+      .btn svg {
+        transition: transform 0.2s ease;
+      }
+      .btn:hover svg {
+        transform: translateX(3px);
+      }
+
       .hero-bg {
         position: absolute;
         top: 0;
@@ -1692,22 +1699,38 @@
             <h3>Carlo MOSCATELLI</h3>
             <p>
               Sono nato e cresciuto a Desio, tra la parrocchia dei Santi Pietro e Paolo, le scuole di via Diaz e il liceo Majorana.
-              Dopo quasi quarant’anni in Eni, oggi in pensione, sento il desiderio di restituire alla mia città quanto ho ricevuto.
+              Dopo quasi quarant'anni in Eni, oggi in pensione, sento il desiderio di restituire alla mia città quanto ho ricevuto.
               Il mio impegno civico non si è mai interrotto: dalla politica al sociale, fino alla presidenza della Cooperativa Pro Desio-Acli.
             </p>
             <p>
               Oggi mi candido per rilanciare Desio con una squadra compatta e un programma concreto,
               per rimettere al centro la nostra città e le persone che la vivono ogni giorno.
             </p>
-            <a
-              href="javascript:void(0);"
-              class="btn"
-              data-modal-pdf="assets/coalizione-moscatelli-bio.pdf"
-              data-modal-title="Carlo MOSCATELLI"
-              aria-label="Visualizza Bio di Carlo MOSCATELLI"
-            >
-              Visualizza Bio
-            </a>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; align-items: center;">
+  <a
+    href="javascript:void(0);"
+    class="btn"
+    data-modal-pdf="assets/coalizione-moscatelli-bio.pdf"
+    data-modal-title="Carlo MOSCATELLI"
+    aria-label="Visualizza CV e Casellario di Carlo MOSCATELLI"
+  >
+    Visualizza CV e Casellario
+  </a>
+  <a
+    href="candidato-sindaco.html"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn"
+    style="display: inline-flex; align-items: center; gap: 6px;"
+    aria-label="Pagina dedicata al candidato Carlo Moscatelli"
+  >
+    Approfondisci
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" viewBox="0 0 16 16" style="margin-top: 1px;">
+      <path d="M6.364 13.364a1 1 0 0 1 0-1.414L11.95 6.364H8a1 1 0 1 1 0-2h6a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0V7.05l-5.586 5.586a1 1 0 0 1-1.414 0z"/>
+    </svg>
+  </a>
+</div>
+
           </div>
           <div
             class="principle-image"
