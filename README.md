@@ -22,6 +22,7 @@ Sito web statico della lista civica **Desio Libera**, realizzato interamente **l
 ├── photos/                  # Ritratti dei candidati
 ├── assets/                  # PDF dei programmi e biografie scaricabili
 └── css/                     # (opzionale - non usato attualmente: CSS inline in HTML)
+```
 
 ---
 
