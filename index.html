@@ -442,6 +442,41 @@
         color: #666;
       }
 
+      /* Sezione candidato sindaco */
+      .quote-candidato {
+        font-style: italic;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        position: relative;
+        padding-left: 1.2rem;
+        margin: 1.5rem 0;
+        border-left: 4px solid #ccc;
+        color: #333;
+      }
+
+      .quote-candidato p {
+        margin: 0;
+        quotes: "“" "”" "‘" "’";
+      }
+
+      .quote-candidato p::before {
+        content: open-quote;
+        font-size: 2rem;
+        line-height: 0;
+        vertical-align: -0.4em;
+        margin-right: 4px;
+        color: #888;
+      }
+
+      .quote-candidato p::after {
+        content: close-quote;
+        font-size: 2rem;
+        line-height: 0;
+        vertical-align: -0.4em;
+        margin-left: 4px;
+        color: #888;
+      }
+
       /* Sezione del team */
       .team {
         background-color: #fff;
@@ -1697,40 +1732,36 @@
             data-aos-delay="0"
           >
             <h3>Carlo MOSCATELLI</h3>
-            <p>
-              Sono nato e cresciuto a Desio, tra la parrocchia dei Santi Pietro e Paolo, le scuole di via Diaz e il liceo Majorana.
-              Dopo quasi quarant'anni in Eni, oggi in pensione, sento il desiderio di restituire alla mia città quanto ho ricevuto.
-              Il mio impegno civico non si è mai interrotto: dalla politica al sociale, fino alla presidenza della Cooperativa Pro Desio-Acli.
-            </p>
-            <p>
-              Oggi mi candido per rilanciare Desio con una squadra compatta e un programma concreto,
-              per rimettere al centro la nostra città e le persone che la vivono ogni giorno.
-            </p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; align-items: center;">
-  <a
-    href="javascript:void(0);"
-    class="btn"
-    data-modal-pdf="assets/coalizione-moscatelli-bio.pdf"
-    data-modal-title="Carlo MOSCATELLI"
-    aria-label="Visualizza CV e Casellario di Carlo MOSCATELLI"
-  >
-    Visualizza CV e Casellario
-  </a>
-  <a
-    href="candidato-sindaco.html"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="btn"
-    style="display: inline-flex; align-items: center; gap: 6px;"
-    aria-label="Pagina dedicata al candidato Carlo Moscatelli"
-  >
-    Approfondisci
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" viewBox="0 0 16 16" style="margin-top: 1px;">
-      <path d="M6.364 13.364a1 1 0 0 1 0-1.414L11.95 6.364H8a1 1 0 1 1 0-2h6a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0V7.05l-5.586 5.586a1 1 0 0 1-1.414 0z"/>
-    </svg>
-  </a>
-</div>
-
+            <blockquote class="quote-candidato" data-aos="fade-in" data-aos-delay="100">
+              <p>
+                Mi candido per rilanciare Desio con una squadra compatta e un programma concreto,
+                per rimettere al centro la nostra città e le persone che la vivono ogni giorno.
+              </p>
+            </blockquote>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; align-items: center;">
+              <a
+                href="candidato-sindaco.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn"
+                style="display: inline-flex; align-items: center; gap: 6px;"
+                aria-label="Pagina dedicata al candidato Carlo Moscatelli"
+              >
+                Approfondisci
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" viewBox="0 0 16 16" style="margin-top: 1px;">
+                  <path d="M6.364 13.364a1 1 0 0 1 0-1.414L11.95 6.364H8a1 1 0 1 1 0-2h6a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0V7.05l-5.586 5.586a1 1 0 0 1-1.414 0z"/>
+                </svg>
+              </a>
+              <a
+                href="javascript:void(0);"
+                class="btn"
+                data-modal-pdf="assets/coalizione-moscatelli-bio.pdf"
+                data-modal-title="Carlo MOSCATELLI"
+                aria-label="Visualizza CV e Casellario di Carlo MOSCATELLI"
+              >
+                Visualizza CV e Casellario
+              </a>
+            </div>
           </div>
           <div
             class="principle-image"
