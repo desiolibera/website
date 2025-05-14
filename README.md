@@ -42,7 +42,8 @@ Sito web statico della lista civica **Desio Libera**, realizzato interamente **l
 
 ## 📄 Dettaglio file
 
-### `index.html`
+### 'index.html'
+
 Pagina principale che include:
 
 - Meta tag SEO e social (`og:title`, `og:description`, Twitter Card…)
@@ -58,11 +59,13 @@ Pagina principale che include:
   - **Modale PDF** dinamica e accessibile
 
 ### `candidato-sindaco.html`
+
 - Pagina dedicata con profilo completo del candidato sindaco.
 - Struttura semplice, ottimizzata per SEO e con scroll-to-top.
 - Link per tornare alla homepage.
 
 ### `js/script.min.js`
+
 Contiene tutta la logica JavaScript:
 
 - Inizializzazione di:
@@ -92,6 +95,7 @@ Contiene tutta la logica JavaScript:
 ## 🚀 Hosting consigliato
 
 Può essere hostato su:
+
 - GitHub Pages
 - Netlify / Vercel
 - qualsiasi web server statico (Apache/Nginx/Cloudflare Pages…)
@@ -100,7 +104,7 @@ Può essere hostato su:
 
 ## 📮 Contatti
 
-📧 info@desiolibera.it  
+📧 <info@desiolibera.it>  
 📍 Via Matteotti 23, Desio  
 📱 [Facebook](https://www.facebook.com/DesioLiberaListaCivica) | [Instagram](https://www.instagram.com/desiolibera/)
 
