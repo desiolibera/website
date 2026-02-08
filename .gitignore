@@ -1,3 +1,34 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# VS Code settings
 .vscode/
 
+# Replit metadata
+.replit
+*.replit
+
+# Env files (dove salvi i token e le chiavi API)
+.env
+.env.*
+venv/
+__pycache__/
+
+# Config personalizzati e backup
+*.log
+*.bak
+*.swp
+
+# Cartelle temporanee
+tmp/
+temp/
+.cache/
+
+# File di sistema (macOS, Linux, Windows)
+.DS_Store
+Thumbs.db
+desktop.ini
+desiolibera-bot.code-workspace
 desiolibera-website.code-workspace
